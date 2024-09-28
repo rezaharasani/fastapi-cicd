@@ -3,13 +3,13 @@ kind: Deployment
 metadata:
   name: fastapi-deployment
 spec:
-  replicas: 2 
+  replicas: 2
   selector:
-    matchLables:
+    matchLabels:
       app: fastapi-app
   template:
     metadata:
-      lables:
+      labels:
         app: fastapi-app
     spec:
       containers:
@@ -17,4 +17,3 @@ spec:
         image: mbosofthub/my-fastapi-app:latest
         ports:
         - containerPort: 8000
-
