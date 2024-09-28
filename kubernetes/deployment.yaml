@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-deployment
+spec:
+  replicas: 2 
+  selector:
+    matchLables:
+      app: fastapi-app
+  template:
+    metadata:
+      lables:
+        app: fastapi-app
+    spec:
+      containers:
+      - name: fastapi-container
+        image: mbosofthub/my-fastapi-app:latest
+        ports:
+        - containerPort: 8000
+
