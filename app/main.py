@@ -1,13 +1,8 @@
-from fastapi import FastAPI
-import uvicorn
+from fastapi import FastAPI, status
 
 app = FastAPI()
 
 
-@app.get("/")
-async def read_root():
-    return {"Hello" : "CICD FastAPI"}
-
-
-if __name__ == "__main__":
-    uvicorn.run("main:app",reload=True)
+@app.get("/", status_code=status.HTTP_200_OK)
+async def root():
+    return {"Hello": "CICD FastAPI"}
